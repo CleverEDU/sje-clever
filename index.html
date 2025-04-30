@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleverPRO</title>
+    <link rel="icon" type="image/png" href="solo.png"/>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="google-adsense-account" content="ca-pub-3298943858369433">
+</head>
+<body>
+       <div id="overlay">
+        <div id="enter-text">click me to enter</div>
+    </div>
+    <video autoplay muted loop id="bg-video">
+        <source src="particles.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+        <div class="profile-box">
+            <div class="profile">
+                <h1 id="username">St. James Elementary</h1>
+            </div>
+             <p id="p1"> Students</p>
+            <div class="links">
+                <a href="https://clever.com/in/redirector?url=https%3A%2F%2Fhorrycountyschools.schoology.com&link_type=link&link_source=admin_created&hash=77f693ccda02d40c54b707b264c4278db8379bc0c00e016defdaf116da1560ef&id=63d924d78010d4bf6b5de466" class="link"> Schoology</a>
+                <a href="https://myps.horrycountyschools.net/public/home.html" class="link"> PowerSchool</a>
+                <a href="https://www.horrycountyschools.net/districtcalendar" class="link"> Calender</a>
+                <a href="https://khanacademy.org" class="link"> Khan Academy</a>
+                
+            </div> <br>
+            </div>
+                        <p id="p1"> made with 💖 by <a href="https://roman.soloo.fun">roman</a> </p>
+            </div>
+            <div class="volume-container">
+                <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+                <label for="volume-control" class="volume-label">volume</label>
+            </div>
+        </div>
+
+        <audio id="bg-music" src="bg.mp3" loop></audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('overlay');
+            const content = document.querySelector('.content');
+            const bgMusic = document.getElementById('bg-music');
+            const volumeControl = document.getElementById('volume-control');
+
+            overlay.addEventListener('click', () => {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    content.style.display = 'flex';
+                    bgMusic.play();
+                }, 1000);
+            });
+            volumeControl.addEventListener('input', (e) => {
+                bgMusic.volume = e.target.value;
+            });
+        });
+    </script>
+</body>
+</html>
